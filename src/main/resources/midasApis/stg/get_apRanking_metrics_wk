@@ -1,0 +1,81 @@
+//all the header that need to passed to create a workflow (or) to update
+POST {{midasUrl}}/create
+#POST {{midasUrl}}/update
+Content-Type: application/json
+consumer: {{midasConsumer}}
+Authorization: {{midasAuthorization}}
+signature_key_version: {{midasSignatureKeyVersion}}
+signature_ts: {{midasSignatureTs}}
+signature_auth_flag: {{midasSigatureAuthFlag}}
+request_ts: {{timestamp}}
+tenant: {{midasTenant}}
+
+{
+    "name": "get_apRanking_metrics",
+    "output": {
+        "data": {
+            "response": "${query}"
+        }
+    },
+    "sources": {
+        "0": {
+            "clickhouse": {
+                "password": "{password}",
+                "host": "midas-stg-3.us-west1.us.walmart.net",
+                "port": 8123,
+                "timeout": 60000,
+                "username": "aex_dev"
+            },
+            "metadata": {
+                "fields": {
+                    "*": "String"
+                }
+            },
+            "name": "query",
+            "sql": "SELECT DISTINCT fineline_nbr as finelineNbr, cluster_id as analyticsClusterId , sales_amt_last_yr as salesAmtLastYr, sales_units_last_yr as salesUnitsLastYr, forecasted_demand_sales as forecastedDemandSales , forecasted_demand_units as forecastedDemandUnits , on_hand_quantity as onHandQty, sales_to_stock_Ratio as salesToStockRatio FROM aex_true_demand.o9_fineline_ranking_dept_23_v2_dist WHERE dept_nbr = (${l1Id}) AND dept_catg_grp_nbr = (${l2Id}) AND fineline_nbr IN(${finelineNbr}) ORDER BY finelineNbr ",
+            "type": "clickhouse_query_action"
+        }
+    }
+}
+// THis is to Test the draft version before moving to actual workflow
+
+POST {{midasUrl}}/execute/?isDraft=true
+Content-Type: application/json
+consumer: {{midasConsumer}}
+Authorization: {{midasAuthorization}}
+signature_key_version: {{midasSignatureKeyVersion}}
+signature_ts: {{midasSignatureTs}}
+signature_auth_flag: {{midasSigatureAuthFlag}}
+request_ts: {{timestamp}}
+tenant: {{midasTenant}}
+{
+    "query": {
+        "select": [
+            {
+                "field": "*"
+            }
+        ],
+        "from": "get_apRanking_metrics",
+        "params": {
+            "l1Id": 23,
+            "l2Id": 3670,
+            "finelineNbr": [
+                2517,
+                2518,
+                2521,
+                2512
+            ]
+        }
+    }
+}
+
+//Publish the work workflow
+curl --location --request GET 'http://midas-data-api.stg.midas-api.catdev.prod.us.walmart.net/api/workflow/v1/deploy?name=get_apRanking_metrics' \
+--header 'Content-Type: application/json' \
+--header 'consumer: ' \
+--header 'Authorization: ' \
+--header 'signature_key_version: 1' \
+--header 'signature_ts: 1639068838648' \
+--header 'signature_auth_flag: true' \
+--header 'request_ts: 1630008203' \
+--header 'tenant: aex'

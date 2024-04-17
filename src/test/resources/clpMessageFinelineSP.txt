@@ -1,0 +1,543 @@
+{
+    "payload": {
+        "planId": 266,
+        "phId": null,
+        "planDesc": "S3 - FYE 2024",
+        "lvl0Nbr": 50000,
+        "lvl1Nbr": 34,
+        "lvl2Nbr": 6419,
+        "lvl3Nbr": 12234,
+        "lvl4Nbr": 31517,
+        "lvl3": {
+            "lvl3Nbr": 12234,
+            "lvl3Name": "Bottoms Plus Womens",
+            "metrics": {
+                "lyActuals": null,
+                "llyActuals": null,
+                "lyPlanned": null,
+                "llyPlanned": null,
+                "custom": null,
+                "current": {
+                    "planComments": null,
+                    "store": {
+                        "productAttributes": {
+                            "typeSpecific": null
+                        },
+                        "financialAttributes": {
+                            "regSales": 40000,
+                            "regSalesUnits": 2000,
+                            "receiptDollars": 0,
+                            "receiptCost": 0,
+                            "receiptUnits": 0,
+                            "auc": null,
+                            "aur": null,
+                            "imuPercent": null,
+                            "msrp": 0,
+                            "supplierCost": null,
+                            "freightFactor": null,
+                            "noOfFixtures": 200,
+                            "noOfStoresSelling": 100,
+                            "netSellThruPercent": null,
+                            "asfp": 0.67,
+                            "asps": 1.33,
+                            "totalAws": null,
+                            "skuCount": null,
+                            "initialCpPercent": null,
+                            "transactableStartWk": "FYE2024WK15",
+                            "transactableStartWkNbr": 12315,
+                            "transactableEndWk": "FYE2024WK30",
+                            "transactableEndWkNbr": 12330,
+                            "transactableWks": 15
+                        }
+                    },
+                    "online": {
+                        "productAttributes": {
+                            "typeSpecific": null
+                        },
+                        "financialAttributes": {
+                            "regSales": 0,
+                            "regSalesUnits": 0,
+                            "receiptDollars": 0,
+                            "receiptCost": 0,
+                            "receiptUnits": 0,
+                            "auc": null,
+                            "aur": null,
+                            "imuPercent": null,
+                            "msrp": 25,
+                            "supplierCost": null,
+                            "freightFactor": null,
+                            "noOfFixtures": null,
+                            "noOfStoresSelling": null,
+                            "netSellThruPercent": null,
+                            "asfp": 0,
+                            "asps": 0,
+                            "totalAws": null,
+                            "skuCount": null,
+                            "initialCpPercent": null,
+                            "transactableStartWk": "FYE2024WK19",
+                            "transactableStartWkNbr": 12319,
+                            "transactableEndWk": "FYE2024WK25",
+                            "transactableEndWkNbr": 12325,
+                            "transactableWks": 6
+                        }
+                    },
+                    "omni": {
+                        "productAttributes": {
+                            "typeSpecific": null
+                        },
+                        "financialAttributes": {
+                            "regSales": 0,
+                            "regSalesUnits": 0,
+                            "receiptDollars": 0,
+                            "receiptCost": 0,
+                            "receiptUnits": 0,
+                            "auc": null,
+                            "aur": null,
+                            "imuPercent": null,
+                            "msrp": 0,
+                            "supplierCost": null,
+                            "freightFactor": null,
+                            "noOfFixtures": null,
+                            "noOfStoresSelling": null,
+                            "netSellThruPercent": null,
+                            "asfp": null,
+                            "asps": null,
+                            "totalAws": null,
+                            "skuCount": null,
+                            "initialCpPercent": null,
+                            "transactableStartWk": null,
+                            "transactableStartWkNbr": null,
+                            "transactableEndWk": null,
+                            "transactableEndWkNbr": null,
+                            "transactableWks": null
+                        }
+                    },
+                    "combined": {
+                        "productAttributes": {
+                            "typeSpecific": null
+                        },
+                        "financialAttributes": {
+                            "regSales": 0,
+                            "regSalesUnits": 0,
+                            "receiptDollars": null,
+                            "receiptCost": null,
+                            "receiptUnits": null,
+                            "auc": null,
+                            "aur": null,
+                            "imuPercent": null,
+                            "msrp": null,
+                            "supplierCost": null,
+                            "freightFactor": null,
+                            "noOfFixtures": null,
+                            "noOfStoresSelling": null,
+                            "netSellThruPercent": null,
+                            "asfp": null,
+                            "asps": null,
+                            "totalAws": null,
+                            "skuCount": null,
+                            "initialCpPercent": null,
+                            "transactableStartWk": null,
+                            "transactableStartWkNbr": null,
+                            "transactableEndWk": null,
+                            "transactableEndWkNbr": null,
+                            "transactableWks": null
+                        }
+                    }
+                }
+            },
+            "lvl4": {
+                "lvl4Nbr": 31517,
+                "lvl4Name": "Jeans Bottoms Plus Womens",
+                "metrics": {
+                    "lyActuals": null,
+                    "llyActuals": null,
+                    "lyPlanned": null,
+                    "llyPlanned": null,
+                    "custom": null,
+                    "current": {
+                        "planComments": null,
+                        "store": {
+                            "productAttributes": {
+                                "typeSpecific": null
+                            },
+                            "financialAttributes": {
+                                "regSales": 0,
+                                "regSalesUnits": 0,
+                                "receiptDollars": 0,
+                                "receiptCost": 0,
+                                "receiptUnits": 0,
+                                "auc": null,
+                                "aur": null,
+                                "imuPercent": null,
+                                "msrp": 0,
+                                "supplierCost": null,
+                                "freightFactor": null,
+                                "noOfFixtures": null,
+                                "noOfStoresSelling": null,
+                                "netSellThruPercent": null,
+                                "asfp": 0,
+                                "asps": 0,
+                                "totalAws": null,
+                                "skuCount": null,
+                                "initialCpPercent": null,
+                                "transactableStartWk": "FYE2024WK15",
+                                "transactableStartWkNbr": 12315,
+                                "transactableEndWk": "FYE2024WK30",
+                                "transactableEndWkNbr": 12330,
+                                "transactableWks": 15
+                            }
+                        },
+                        "online": {
+                            "productAttributes": {
+                                "typeSpecific": null
+                            },
+                            "financialAttributes": {
+                                "regSales": 0,
+                                "regSalesUnits": 0,
+                                "receiptDollars": 0,
+                                "receiptCost": 0,
+                                "receiptUnits": 0,
+                                "auc": null,
+                                "aur": null,
+                                "imuPercent": null,
+                                "msrp": 16,
+                                "supplierCost": null,
+                                "freightFactor": null,
+                                "noOfFixtures": null,
+                                "noOfStoresSelling": null,
+                                "netSellThruPercent": null,
+                                "asfp": null,
+                                "asps": null,
+                                "totalAws": null,
+                                "skuCount": null,
+                                "initialCpPercent": null,
+                                "transactableStartWk": null,
+                                "transactableStartWkNbr": null,
+                                "transactableEndWk": null,
+                                "transactableEndWkNbr": null,
+                                "transactableWks": null
+                            }
+                        },
+                        "omni": {
+                            "productAttributes": {
+                                "typeSpecific": null
+                            },
+                            "financialAttributes": {
+                                "regSales": 0,
+                                "regSalesUnits": 0,
+                                "receiptDollars": 0,
+                                "receiptCost": 0,
+                                "receiptUnits": 0,
+                                "auc": null,
+                                "aur": null,
+                                "imuPercent": null,
+                                "msrp": 0,
+                                "supplierCost": null,
+                                "freightFactor": null,
+                                "noOfFixtures": null,
+                                "noOfStoresSelling": null,
+                                "netSellThruPercent": null,
+                                "asfp": null,
+                                "asps": null,
+                                "totalAws": null,
+                                "skuCount": null,
+                                "initialCpPercent": null,
+                                "transactableStartWk": null,
+                                "transactableStartWkNbr": null,
+                                "transactableEndWk": null,
+                                "transactableEndWkNbr": null,
+                                "transactableWks": null
+                            }
+                        },
+                        "combined": {
+                            "productAttributes": {
+                                "typeSpecific": null
+                            },
+                            "financialAttributes": {
+                                "regSales": 0,
+                                "regSalesUnits": 0,
+                                "receiptDollars": null,
+                                "receiptCost": null,
+                                "receiptUnits": null,
+                                "auc": null,
+                                "aur": null,
+                                "imuPercent": null,
+                                "msrp": null,
+                                "supplierCost": null,
+                                "freightFactor": null,
+                                "noOfFixtures": null,
+                                "noOfStoresSelling": null,
+                                "netSellThruPercent": null,
+                                "asfp": null,
+                                "asps": null,
+                                "totalAws": null,
+                                "skuCount": null,
+                                "initialCpPercent": null,
+                                "transactableStartWk": null,
+                                "transactableStartWkNbr": null,
+                                "transactableEndWk": null,
+                                "transactableEndWkNbr": null,
+                                "transactableWks": null
+                            }
+                        }
+                    }
+                },
+                "finelines": {
+                    "finelineId": 3019,
+                    "finelineName": null,
+                    "altFinelineName": "xyz",
+                    "sendToPDStatus": "NOT SENT",
+                    "productDevManager": {
+                        "name": null,
+                        "id": null
+                    },
+                    "likeAssociation": {
+                        "id": null,
+                        "name": null
+                    },
+                    "channel": "omni",
+                    "metrics": {
+                        "lyActuals": null,
+                        "llyActuals": null,
+                        "lyPlanned": null,
+                        "llyPlanned": null,
+                        "custom": null,
+                        "current": {
+                            "planComments": null,
+                            "store": {
+                                "productAttributes": {
+                                    "typeSpecific": {
+                                        "brands": [],
+                                        "suppliers": [],
+                                        "colors": [],
+                                        "noOfSizesOffered": null,
+                                        "brandCategory": [],
+                                        "onlineBundle": [],
+                                        "countryOfOrigin": [],
+                                        "sustainableMaterials": [],
+                                        "fabricConstruction": [],
+                                        "fabricType": [],
+                                        "fashionPyramid": [],
+                                        "patternType": [],
+                                        "fit": [],
+                                        "neckLine": [],
+                                        "newness": [],
+                                        "sleeveLength": [],
+                                        "silhouette": [],
+                                        "outFitting": null,
+                                        "lifestyle": [],
+                                        "priceTier": [],
+                                        "seasonalEvent": [],
+                                        "clothingSizeGroup": [],
+                                        "sizeRanges": [],
+                                        "bundle": [],
+                                        "type": [],
+                                        "traitChoice": "Both",
+                                        "preferredFixtureType": "Rack",
+                                        "preferredFixtureType2": null,
+                                        "preferredFixtureType3": null,
+                                        "preferredFixtureType4": null
+                                    }
+                                },
+                                "financialAttributes": {
+                                    "regSales": 0,
+                                    "regSalesUnits": null,
+                                    "receiptDollars": 0,
+                                    "receiptCost": null,
+                                    "receiptUnits": null,
+                                    "auc": 0,
+                                    "aur": null,
+                                    "imuPercent": 0,
+                                    "msrp": null,
+                                    "supplierCost": null,
+                                    "freightFactor": null,
+                                    "noOfFixtures": null,
+                                    "noOfStoresSelling": null,
+                                    "netSellThruPercent": null,
+                                    "asfp": null,
+                                    "asps": null,
+                                    "totalAws": null,
+                                    "skuCount": null,
+                                    "initialCpPercent": null,
+                                    "transactableStartWk": null,
+                                    "transactableStartWkNbr": null,
+                                    "transactableEndWk": null,
+                                    "transactableEndWkNbr": null,
+                                    "transactableWks": null
+                                }
+                            },
+                            "online": {
+                                "productAttributes": {
+                                    "typeSpecific": {
+                                        "brands": [],
+                                        "suppliers": [],
+                                        "colors": [],
+                                        "noOfSizesOffered": null,
+                                        "brandCategory": [],
+                                        "onlineBundle": [],
+                                        "countryOfOrigin": [],
+                                        "sustainableMaterials": [],
+                                        "fabricConstruction": [],
+                                        "fabricType": [],
+                                        "fashionPyramid": [],
+                                        "patternType": [],
+                                        "fit": [],
+                                        "neckLine": [],
+                                        "newness": [],
+                                        "sleeveLength": [],
+                                        "silhouette": [],
+                                        "outFitting": null,
+                                        "lifestyle": [],
+                                        "priceTier": [],
+                                        "seasonalEvent": [],
+                                        "clothingSizeGroup": [],
+                                        "sizeRanges": [],
+                                        "bundle": [],
+                                        "type": [],
+                                        "traitChoice": "Both",
+                                        "preferredFixtureType": "Rack",
+                                        "preferredFixtureType2": null,
+                                        "preferredFixtureType3": null,
+                                        "preferredFixtureType4": null
+                                    }
+                                },
+                                "financialAttributes": {
+                                    "regSales": 0,
+                                    "regSalesUnits": null,
+                                    "receiptDollars": 0,
+                                    "receiptCost": null,
+                                    "receiptUnits": null,
+                                    "auc": null,
+                                    "aur": null,
+                                    "imuPercent": 0,
+                                    "msrp": null,
+                                    "supplierCost": null,
+                                    "freightFactor": null,
+                                    "noOfFixtures": null,
+                                    "noOfStoresSelling": null,
+                                    "netSellThruPercent": null,
+                                    "asfp": null,
+                                    "asps": null,
+                                    "totalAws": null,
+                                    "skuCount": null,
+                                    "initialCpPercent": null,
+                                    "transactableStartWk": null,
+                                    "transactableStartWkNbr": null,
+                                    "transactableEndWk": null,
+                                    "transactableEndWkNbr": null,
+                                    "transactableWks": null
+                                }
+                            },
+                            "omni": {
+                                "productAttributes": null,
+                                "financialAttributes": {
+                                    "regSales": null,
+                                    "regSalesUnits": null,
+                                    "receiptDollars": null,
+                                    "receiptCost": null,
+                                    "receiptUnits": null,
+                                    "auc": null,
+                                    "aur": null,
+                                    "imuPercent": 0,
+                                    "msrp": null,
+                                    "supplierCost": null,
+                                    "freightFactor": null,
+                                    "noOfFixtures": null,
+                                    "noOfStoresSelling": null,
+                                    "netSellThruPercent": null,
+                                    "asfp": null,
+                                    "asps": null,
+                                    "totalAws": null,
+                                    "skuCount": null,
+                                    "initialCpPercent": null,
+                                    "transactableStartWk": null,
+                                    "transactableStartWkNbr": null,
+                                    "transactableEndWk": null,
+                                    "transactableEndWkNbr": null,
+                                    "transactableWks": null
+                                }
+                            },
+                            "combined": {
+                                "productAttributes": {
+                                    "typeSpecific": null
+                                },
+                                "financialAttributes": {
+                                    "regSales": null,
+                                    "regSalesUnits": null,
+                                    "receiptDollars": null,
+                                    "receiptCost": null,
+                                    "receiptUnits": null,
+                                    "auc": null,
+                                    "aur": null,
+                                    "imuPercent": null,
+                                    "msrp": null,
+                                    "supplierCost": null,
+                                    "freightFactor": null,
+                                    "noOfFixtures": null,
+                                    "noOfStoresSelling": null,
+                                    "netSellThruPercent": null,
+                                    "asfp": null,
+                                    "asps": null,
+                                    "totalAws": null,
+                                    "skuCount": null,
+                                    "initialCpPercent": null,
+                                    "transactableStartWk": null,
+                                    "transactableStartWkNbr": null,
+                                    "transactableEndWk": null,
+                                    "transactableEndWkNbr": null,
+                                    "transactableWks": null
+                                }
+                            }
+                        }
+                    },
+                    "styles": [],
+                    "mapOfStyles": null,
+                    "ecommChannel": null
+                }
+            }
+        }
+    },
+    "headers": {
+        "kafka_timestamp": 1652808999,
+        "source": "AEX-CLP",
+        "id": "ca492338-1add-7c9f-829a-07e9c8e469f6",
+        "type": "UPDATE",
+        "changeScope": {
+            "updatedAttributes": [
+                "channel"
+            ],
+            "strongKeys": {
+                "lvl0Nbr": 50000,
+                "lvl1Nbr": 34,
+                "lvl2Nbr": 6419,
+                "lvl3Nbr": 12234,
+                "lvl4Nbr": 31517,
+                "lvl0GenDesc1": "Apparel",
+                "lvl1GenDesc1": "D34 - Womens Apparel",
+                "lvl2GenDesc1": "Plus Womens",
+                "fineline": {
+                    "finelineId": 3019,
+                    "finelineName": null,
+                    "altFinelineName": null,
+                    "updatedFields": {
+                        "common": null,
+                        "store": [
+                            {
+                                "key": "traitChoice",
+                                "value": "Both"
+                            }
+                        ],
+                        "online": null,
+                        "omni": null
+                    },
+                    "channel": null,
+                    "noOfNewStyles": null,
+                    "noOfNewCCs": null,
+                    "isNew": null,
+                    "styles": []
+                }
+            }
+        },
+        "timestamp": 1652808999736
+    }
+}

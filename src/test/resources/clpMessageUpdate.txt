@@ -1,0 +1,312 @@
+ {
+        "payload": {
+            "planId": 529,
+            "planDesc": "S1 - FYE 2024",
+            "fiscalYear": 2024,
+            "fiscalYearDesc": "FYE 2024",
+            "merchant": [
+                {
+                    "merchantAlias": "a0d06uh",
+                    "firstName": "Naga",
+                    "lastName": "Devisetty",
+                    "merchantEmail": "a0d06uh@homeoffice.wal-mart.com",
+                    "domain": "homeoffice"
+                }
+            ],
+            "planHierarchy": {
+                "lvl0Nbr": 50000,
+                "lvl0GenDesc1": "Apparel",
+                "lvl1": [
+                    {
+                        "lvl1Nbr": 24,
+                        "lvl1GenDesc1": "D24 - Boys Apparel",
+                        "lvl2": [
+                            {
+                                "lvl2Nbr": 6134,
+                                "lvl2GenDesc1": "Hawaii D24",
+                                "lvl3": [
+                                    {
+                                        "lvl3Nbr": 11643,
+                                        "lvl3GenDesc1": "Hawaii Aloha",
+                                        "fiscalWeeks": [
+                                            {
+                                                "fiscalYear": 2024,
+                                                "wmWeekDesc": "WK07",
+                                                "wmYearWeek": 12307,
+                                                "tyYrWeek": 202307,
+                                                "lyCompYrWeek": 202207,
+                                                "llyCompYrWeek": 202107,
+                                                "seasonCode": null
+                                            },
+                                            {
+                                                "fiscalYear": 2024,
+                                                "wmWeekDesc": "WK08",
+                                                "wmYearWeek": 12308,
+                                                "tyYrWeek": 202308,
+                                                "lyCompYrWeek": 202208,
+                                                "llyCompYrWeek": 202108,
+                                                "seasonCode": null
+                                            },
+                                            {
+                                                "fiscalYear": 2024,
+                                                "wmWeekDesc": "WK09",
+                                                "wmYearWeek": 12309,
+                                                "tyYrWeek": 202309,
+                                                "lyCompYrWeek": 202209,
+                                                "llyCompYrWeek": 202109,
+                                                "seasonCode": null
+                                            }
+                                        ],
+                                        "lvl4": [
+                                            {
+                                                "lvl4Nbr": 30083,
+                                                "lvl4GenDesc1": "Camp Shirt",
+                                                "fiscalWeeks": [
+                                                    {
+                                                        "fiscalYear": 2024,
+                                                        "wmWeekDesc": "WK07",
+                                                        "wmYearWeek": 12307,
+                                                        "tyYrWeek": 202307,
+                                                        "lyCompYrWeek": 202207,
+                                                        "llyCompYrWeek": 202107,
+                                                        "seasonCode": null
+                                                    },
+                                                    {
+                                                        "fiscalYear": 2024,
+                                                        "wmWeekDesc": "WK08",
+                                                        "wmYearWeek": 12308,
+                                                        "tyYrWeek": 202308,
+                                                        "lyCompYrWeek": 202208,
+                                                        "llyCompYrWeek": 202108,
+                                                        "seasonCode": null
+                                                    },
+                                                    {
+                                                        "fiscalYear": 2024,
+                                                        "wmWeekDesc": "WK09",
+                                                        "wmYearWeek": 12309,
+                                                        "tyYrWeek": 202309,
+                                                        "lyCompYrWeek": 202209,
+                                                        "llyCompYrWeek": 202109,
+                                                        "seasonCode": null
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "lvl4Nbr": 30084,
+                                                "lvl4GenDesc1": "Aloha Shirt",
+                                                "fiscalWeeks": [
+                                                    {
+                                                        "fiscalYear": 2024,
+                                                        "wmWeekDesc": "WK07",
+                                                        "wmYearWeek": 12307,
+                                                        "tyYrWeek": 202307,
+                                                        "lyCompYrWeek": 202207,
+                                                        "llyCompYrWeek": 202107,
+                                                        "seasonCode": null
+                                                    },
+                                                    {
+                                                        "fiscalYear": 2024,
+                                                        "wmWeekDesc": "WK08",
+                                                        "wmYearWeek": 12308,
+                                                        "tyYrWeek": 202308,
+                                                        "lyCompYrWeek": 202208,
+                                                        "llyCompYrWeek": 202108,
+                                                        "seasonCode": null
+                                                    },
+                                                    {
+                                                        "fiscalYear": 2024,
+                                                        "wmWeekDesc": "WK09",
+                                                        "wmYearWeek": 12309,
+                                                        "tyYrWeek": 202309,
+                                                        "lyCompYrWeek": 202209,
+                                                        "llyCompYrWeek": 202109,
+                                                        "seasonCode": null
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "lvl3Nbr": 11644,
+                                        "lvl3GenDesc1": "Hawaii Bottoms",
+                                        "fiscalWeeks": [
+                                            {
+                                                "fiscalYear": 2024,
+                                                "wmWeekDesc": "WK07",
+                                                "wmYearWeek": 12307,
+                                                "tyYrWeek": 202307,
+                                                "lyCompYrWeek": 202207,
+                                                "llyCompYrWeek": 202107,
+                                                "seasonCode": null
+                                            },
+                                            {
+                                                "fiscalYear": 2024,
+                                                "wmWeekDesc": "WK08",
+                                                "wmYearWeek": 12308,
+                                                "tyYrWeek": 202308,
+                                                "lyCompYrWeek": 202208,
+                                                "llyCompYrWeek": 202108,
+                                                "seasonCode": null
+                                            },
+                                            {
+                                                "fiscalYear": 2024,
+                                                "wmWeekDesc": "WK09",
+                                                "wmYearWeek": 12309,
+                                                "tyYrWeek": 202309,
+                                                "lyCompYrWeek": 202209,
+                                                "llyCompYrWeek": 202109,
+                                                "seasonCode": null
+                                            }
+                                        ],
+                                        "lvl4": [
+                                            {
+                                                "lvl4Nbr": 29647,
+                                                "lvl4GenDesc1": "Pants - Hi",
+                                                "fiscalWeeks": [
+                                                    {
+                                                        "fiscalYear": 2024,
+                                                        "wmWeekDesc": "WK07",
+                                                        "wmYearWeek": 12307,
+                                                        "tyYrWeek": 202307,
+                                                        "lyCompYrWeek": 202207,
+                                                        "llyCompYrWeek": 202107,
+                                                        "seasonCode": null
+                                                    },
+                                                    {
+                                                        "fiscalYear": 2024,
+                                                        "wmWeekDesc": "WK08",
+                                                        "wmYearWeek": 12308,
+                                                        "tyYrWeek": 202308,
+                                                        "lyCompYrWeek": 202208,
+                                                        "llyCompYrWeek": 202108,
+                                                        "seasonCode": null
+                                                    },
+                                                    {
+                                                        "fiscalYear": 2024,
+                                                        "wmWeekDesc": "WK09",
+                                                        "wmYearWeek": 12309,
+                                                        "tyYrWeek": 202309,
+                                                        "lyCompYrWeek": 202209,
+                                                        "llyCompYrWeek": 202109,
+                                                        "seasonCode": null
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "lvl4Nbr": 29648,
+                                                "lvl4GenDesc1": "Shorts - Hi",
+                                                "fiscalWeeks": [
+                                                    {
+                                                        "fiscalYear": 2024,
+                                                        "wmWeekDesc": "WK07",
+                                                        "wmYearWeek": 12307,
+                                                        "tyYrWeek": 202307,
+                                                        "lyCompYrWeek": 202207,
+                                                        "llyCompYrWeek": 202107,
+                                                        "seasonCode": null
+                                                    },
+                                                    {
+                                                        "fiscalYear": 2024,
+                                                        "wmWeekDesc": "WK08",
+                                                        "wmYearWeek": 12308,
+                                                        "tyYrWeek": 202308,
+                                                        "lyCompYrWeek": 202208,
+                                                        "llyCompYrWeek": 202108,
+                                                        "seasonCode": null
+                                                    },
+                                                    {
+                                                        "fiscalYear": 2024,
+                                                        "wmWeekDesc": "WK09",
+                                                        "wmYearWeek": 12309,
+                                                        "tyYrWeek": 202309,
+                                                        "lyCompYrWeek": 202209,
+                                                        "llyCompYrWeek": 202109,
+                                                        "seasonCode": null
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "lvl4Nbr": 30092,
+                                                "lvl4GenDesc1": "Shorts",
+                                                "fiscalWeeks": [
+                                                    {
+                                                        "fiscalYear": 2024,
+                                                        "wmWeekDesc": "WK07",
+                                                        "wmYearWeek": 12307,
+                                                        "tyYrWeek": 202307,
+                                                        "lyCompYrWeek": 202207,
+                                                        "llyCompYrWeek": 202107,
+                                                        "seasonCode": null
+                                                    },
+                                                    {
+                                                        "fiscalYear": 2024,
+                                                        "wmWeekDesc": "WK08",
+                                                        "wmYearWeek": 12308,
+                                                        "tyYrWeek": 202308,
+                                                        "lyCompYrWeek": 202208,
+                                                        "llyCompYrWeek": 202108,
+                                                        "seasonCode": null
+                                                    },
+                                                    {
+                                                        "fiscalYear": 2024,
+                                                        "wmWeekDesc": "WK09",
+                                                        "wmYearWeek": 12309,
+                                                        "tyYrWeek": 202309,
+                                                        "lyCompYrWeek": 202209,
+                                                        "llyCompYrWeek": 202109,
+                                                        "seasonCode": null
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+                 "headers": {
+                     "source": "AEX Season Plan",
+                     "type": "MODIFY",
+                     "changeScope": {
+                           "updatedAttributes": [
+                           ],
+                           "strongKeys": {
+                             "lvl0Nbr": 50000,
+                             "lvl1Nbr": 34,
+                             "lvl2Nbr": 6419,
+                             "lvl3Nbr": 12234,
+                             "lvl4Nbr": 31517,
+                             "lvl0GenDesc1": "Apparel",
+                             "lvl1GenDesc1": "D34 - Womens Apparel",
+                             "lvl2GenDesc1": "Plus Womens",
+                             "fineline": {
+                               "finelineId": 3019,
+                               "finelineName": null,
+                               "altFinelineName": null,
+                               "updatedFields": {
+                                 "common": null,
+                                 "store": [
+                                   {
+                                     "key": "traitChoice",
+                                     "value": "Both"
+                                   }
+                                 ],
+                                 "online": null,
+                                 "omni": null
+                               },
+                               "channel": null,
+                               "noOfNewStyles": null,
+                               "noOfNewCCs": null,
+                               "isNew": null,
+                               "styles": [
+
+                               ]
+                             }
+                           }
+                         },
+                         "timestamp": 1652808999736
+                 }
+    }

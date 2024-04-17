@@ -1,0 +1,278 @@
+apiVersion: "2.0"
+kind: "ServiceConfig"
+metadata:
+  serviceId: "aex-strategy-listener"
+  serviceConfigVersion: "1.0-Prod"
+  tags: []
+  authzPolicies:
+    adminUI:
+      adminGroups:
+        - "apparel-precision-kitt"
+    git:
+      org: "ApparelPrecision"
+      repo: "aex-strategy-listener"
+      branch: "main"
+  notifications:
+    slack:
+      channel: "apparel-precision-ops"
+  deliveryEnvironment: "PROD"
+  locked: false
+configDefinitions:
+  ahsApiConfig:
+    description: "AHS Api Header Configurations"
+    resolutionPaths:
+      -
+        default: "/envProfile/envName"
+    properties:
+      strategy.appKey:
+        description: "Strategy App Key"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "AEX_STRATEGY_SERVICE"
+      strategy.consumerId:
+        description: "Strategy Consumer Id"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "452056b2-fe53-42de-8dad-6d1581436858"
+      strategy.env:
+        description: "Strategy Env"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "prod"
+      strategy.sizeApiEnv:
+        description: "ENVIRONMENT"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "prod"
+      strategy.sizeAttributeName:
+        description: "Attribute for which we want info from AHS"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "size"
+      strategy.sizeCustomerID:
+        description: "AHS CustomerID for Size"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "0af23de5-9574-456a-a974-19e5e732bb0c"
+      strategy.sizeServiceName:
+        description: "AHS Service Name"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "ATTRIBUTE-HELPER-SERVICE"
+      strategy.sizeUrl:
+        description: "AHS Size URL"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "http://attributehelper.apparel.walmart.net/retrieveValuesByHierarchy"
+  featureConfig:
+    description: "This Configuration helps to enable-disable a feature"
+    resolutionPaths:
+      - default: "/envProfile/envName"
+    properties:
+      "enable.deletePlanCategorySubCategory":
+        description: "Flag to enable delete Plan Category,Sub-Category"
+        type: "BOOLEAN"
+        kind: "SINGLE"
+        defaultValue: false
+  httpConfig:
+    description: "HTTP Configurations"
+    resolutionPaths:
+      -
+        default: "/envProfile/envName"
+    properties:
+      http.connectTimeout:
+        description: "Connection Timeout for HTTP Calls"
+        type: "INTEGER"
+        kind: "SINGLE"
+        defaultValue: 18000
+      http.connectionRequestTimeout:
+        description: "Connection Request Timeout for HTTP Calls"
+        type: "INTEGER"
+        kind: "SINGLE"
+        defaultValue: 18000
+      http.readTimeout:
+        description: "Read Timeout for HTTP calls"
+        type: "INTEGER"
+        kind: "SINGLE"
+        defaultValue: 18000
+  kafkaConfig:
+    description: "Kafka Configurations"
+    resolutionPaths:
+      -
+        default: "/envProfile/envName"
+    properties:
+      aex.clp.ap.kafka.consumer.group-id:
+        description: "Group Id for current line plan kafka topic"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "aex.strategy.service"
+      aex.clp.ap.kafka.server:
+        description: "Kafka Broker list for AEX current line plan"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "kafka-420262885-1-1196111317.scus.kafka-v2-shared1-ssl-prod.ms-df-messaging.prod-az-southcentralus-2.prod.us.walmart.net:9093,kafka-420262885-2-1196111320.scus.kafka-v2-shared1-ssl-prod.ms-df-messaging.prod-az-southcentralus-2.prod.us.walmart.net:9093,kafka-420262885-3-1196111323.scus.kafka-v2-shared1-ssl-prod.ms-df-messaging.prod-az-southcentralus-2.prod.us.walmart.net:9093,kafka-420262885-4-1196111326.scus.kafka-v2-shared1-ssl-prod.ms-df-messaging.prod-az-southcentralus-2.prod.us.walmart.net:9093,kafka-420262885-5-1196111329.scus.kafka-v2-shared1-ssl-prod.ms-df-messaging.prod-az-southcentralus-2.prod.us.walmart.net:9093,kafka-420262885-6-1196111332.scus.kafka-v2-shared1-ssl-prod.ms-df-messaging.prod-az-southcentralus-2.prod.us.walmart.net:9093,kafka-420262885-7-1196111335.scus.kafka-v2-shared1-ssl-prod.ms-df-messaging.prod-az-southcentralus-2.prod.us.walmart.net:9093,kafka-420262885-8-1196111338.scus.kafka-v2-shared1-ssl-prod.ms-df-messaging.prod-az-southcentralus-2.prod.us.walmart.net:9093,kafka-420262885-9-1196111341.scus.kafka-v2-shared1-ssl-prod.ms-df-messaging.prod-az-southcentralus-2.prod.us.walmart.net:9093,kafka-420262885-10-1196111344.scus.kafka-v2-shared1-ssl-prod.ms-df-messaging.prod-az-southcentralus-2.prod.us.walmart.net:9093,kafka-420262885-11-1196111347.scus.kafka-v2-shared1-ssl-prod.ms-df-messaging.prod-az-southcentralus-2.prod.us.walmart.net:9093,kafka-420262885-12-1196111350.scus.kafka-v2-shared1-ssl-prod.ms-df-messaging.prod-az-southcentralus-2.prod.us.walmart.net:9093,kafka-420262885-13-1196111353.scus.kafka-v2-shared1-ssl-prod.ms-df-messaging.prod-az-southcentralus-2.prod.us.walmart.net:9093,kafka-420262885-14-1196111356.scus.kafka-v2-shared1-ssl-prod.ms-df-messaging.prod-az-southcentralus-2.prod.us.walmart.net:9093,kafka-420262885-15-1196111359.scus.kafka-v2-shared1-ssl-prod.ms-df-messaging.prod-az-southcentralus-2.prod.us.walmart.net:9093"
+      aex.clp.ap.kafka.topic:
+        description: "Kafka Topic for AEX current line plan"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "aex_line_plan_prod"
+      aex.plan.definition.kafka.topic:
+        description: "Kafka Topic for AEX Plan Definition"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "aex_plan_definition"
+      kafka.autoOffsetReset:
+        description: "Auto Offset Reset config for Kafka consumer connections"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "latest"
+      kafka.consumer.accepted.channels:
+        description: "Accepted 'channel' attribute in payload received by kafka consumer"
+        type: "STRING"
+        kind: "MULTI"
+        defaultValues:
+          - "store"
+          - "omni"
+          - "online"
+      kafka.consumer.accepted.types:
+        description: "Accepted 'type' attribute in payload received by kafka consumer"
+        type: "STRING"
+        kind: "MULTI"
+        defaultValues:
+          - "create"
+          - "update"
+          - "delete"
+      kafka.consumer.accepted.updates:
+        description: "Accepted update events in payload received by kafka consumer"
+        type: "STRING"
+        kind: "MULTI"
+        defaultValues:
+          - "finelineName"
+          - "channel"
+          - "traitChoice"
+          - "preferredFixtureType"
+          - "preferredFixtureType2"
+          - "preferredFixtureType3"
+          - "preferredFixtureType4"
+          - "transactableStartWk"
+          - "transactableEndWk"
+          - "colorName"
+          - "altFinelineName"
+          - "altStyleDesc"
+          - "altCcDesc"
+      kafka.consumer.assort.product.flag:
+        description: "Initial Load to sync plans between LP to other capabilities"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "false"
+      kafka.consumer.initial.load.flag:
+        description: "Initial Load to sync plans between LP to other capabilities"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "false"
+      kafka.consumer.size.pack.flag:
+        description: "Initial Load to sync plans between LP to other capabilities"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "false"
+      kafka.enableAutoCommit:
+        description: "Autocommit Enable config for Kafka consumer connections"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "false"
+      kafka.heartbeatInterval:
+        description: "Heartbeat Interval for Kafka consumer connections"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "12000"
+      kafka.sessionTimeout:
+        description: "Session Timeout for Kafka consumer connections"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "15000"
+  midasConfig:
+    description: "Midas Data API Service to Service Authentication"
+    resolutionPaths:
+      -
+        default: "/envProfile/envName"
+    properties:
+      midas.apRankingMetricsQuery:
+        description: "To fetch AP Ranking Metrics from ClickHouse database workflow"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "{\"query\": { \"select\": [ { \"field\": \"*\" } ], \"from\": \"get_apRanking_metrics\", \"params\": { \"l1Id\": \"%s\", \"l2Id\": \"%s\", \"finelineNbr\": \"%s\", \"season\": \"%s\", \"fiscalYear\": \"%s\"}}}"
+      midas.baseURL:
+        description: "Midas api base url"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "http://midas-data-api.prod.midas-api.catdev.prod.us.walmart.net/api/workflow/v1/execute"
+      midas.clickhouse.table:
+        description: "midas clickhouse table"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "omni_item_channel_sales_wkly_v4_dist"
+      midas.header.consumer:
+        description: "Midas api header consumer Id"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "c8c76594-5e94-49fd-b485-0589fc284f95"
+      midas.header.contentType:
+        description: "Midas api header content type"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "application/json"
+      midas.header.signatureAuthFlag:
+        description: "Midas api header signature Auth Flag"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "true"
+      midas.header.signatureKeyVersion:
+        description: "Midas api header signature Key Version"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "1"
+      midas.header.signatureTS:
+        description: "Midas api header signature TS"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "1646847828093"
+      midas.header.tenant:
+        description: "Midas api header tenant"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "aex"
+  strategyConfig:
+    description: "Strategy Configurations"
+    resolutionPaths:
+      -
+        default: "/envProfile/envName"
+    properties:
+      strategy.accepted.fixture.updates:
+        description: "Accepted fixture updates forfixture strategy update"
+        type: "STRING"
+        kind: "MULTI"
+        defaultValues:
+          - "preferredFixtureType"
+          - "preferredFixtureType2"
+          - "preferredFixtureType3"
+          - "preferredFixtureType4"
+      strategy.appKey:
+        description: "Strategy App Key"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "AEX_STRATEGY_SERVICE"
+      strategy.baseUrl:
+        description: "Strategy Base URL"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "https://strategy.aex.prod.walmart.net"
+      strategy.consumerId:
+        description: "Strategy Consumer Id"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "452056b2-fe53-42de-8dad-6d1581436858"
+      strategy.env:
+        description: "Strategy Env"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "prod"

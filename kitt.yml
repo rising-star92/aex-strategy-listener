@@ -1,0 +1,220 @@
+owner:
+  group: apparel-precision-kitt
+
+profiles:
+  - springboot-web-jdk11-alpine
+  - "git://Tunr:strati-af-ccm2-assets:master:ccm2v2"
+  - goldensignal-strati
+
+build:
+  buildType: maven-j11
+  docker:
+    app:
+      buildArgs:
+        mavenVersion: 3-jdk-11
+        openJDKVersion: 13-alpine
+        sonarProjKey: aex-strategy-listener
+        sonarOpts: "-Dsonar.sources=src/main/java
+          -Dsonar.java.binaries=target/classes
+          -Dsonar.junit.reportPaths=target/surefire-reports
+          -Dsonar.jacoco.reportPaths=target/jacoco.exec
+          -Dsonar.pullrequest.github.repository=${GITHUB_ORG}/${GITHUB_REPO}
+          -Dsonar.pullrequest.key=${GITHUB_PR_NUMBER}
+          -Dsonar.pullrequest.branch=${GITHUB_PR_SOURCE_BRANCH}
+          -Dsonar.pullrequest.base=${GITHUB_PR_TARGET_BRANCH}
+          -Dsonar.scm.revision=${GITHUB_PR_HEAD_SHA}"
+
+deploy:
+  namespace: apparel-precision
+  releaseType:
+    rollbackOnError: false
+    waitForReady: true
+    deployTimeout: 300
+  helm:
+    values:
+      livenessProbe:
+        wait: 80
+        path: "/actuator/health"
+      readinessProbe:
+        wait: 80
+        path: "/actuator/health"
+      networking:
+        httpsEnabled: true
+        httpEnabled: true
+        pathPrefix: /
+        externalPort: "8080"
+        internalPort: "8080"
+        gslbdnszone: k8s.glb.us.walmart.net
+      secrets:
+        files:
+          - destination: /ssl.truststore.txt
+            content: aex-clp-ap-listener/{{ $.kittExec.currentCluster.profile }}#ssl.truststore
+          - destination: /ssl.keystore.txt
+            content: aex-clp-ap-listener/{{ $.kittExec.currentCluster.profile }}#ssl.keystore
+          - destination: /ssl.truststore.password.txt
+            content: aex-clp-ap-listener/{{ $.kittExec.currentCluster.profile }}#ssl.truststore.password
+          - destination: /midasApi.authorization.txt
+            content: aex-clp-ap-listener/{{ $.kittExec.currentCluster.profile }}#midasApi.authorization
+          - destination: /aex-kafka-ssl.truststore.txt
+            content: aex-kafka/{{ $.kittExec.currentCluster.profile }}#aex-kafka-ssl.truststore
+          - destination: /aex-kafka-ssl.keystore.txt
+            content: aex-kafka/{{ $.kittExec.currentCluster.profile }}#aex-kafka-ssl.keystore
+          - destination: /aex-kafka-ssl.truststore.password.txt
+            content: aex-kafka/{{ $.kittExec.currentCluster.profile }}#aex-kafka-ssl.truststore.password
+      global:
+        metrics:
+          enabled: true
+          goldenSignalsAggregation: true
+          remoteWriteSampleLimit: 10
+          whitelistenabled: true
+          endpoints:
+            - targetPort: 7766
+              path: "/metrics"
+  gslb:
+    lbRoutings:
+      dev:
+        cnames:
+          - aex-strategy-listener.dev.walmart.net
+      stage:
+        cnames:
+          - aex-strategy-listener.stg.walmart.net
+      prod:
+        cnames:
+          - aex-strategy-listener.prod.walmart.net
+  stages:
+    - name: dev
+      refs:
+        - main
+      target:
+        cluster_id:
+          - useast-dev-az-002
+      helm:
+        values:
+          min:
+            cpu: 800m
+            memory: 2Gi
+          max:
+            cpu: 1
+            memory: 4Gi
+          scaling:
+            cpuPercent: 70
+            min: 2
+            max: 3
+          metadata:
+            labels:
+              wm.app: AEX-STRATEGY-LISTENER
+              wm.env: 'dev'
+              ccm.serviceId: aex-strategy-listener
+              ccm.serviceConfigVersion: "1.3-DEV"
+          env:
+            JAVA_OPTS: "-Dspring.profiles.active=dev
+                        -Dio.strati.RuntimeContext=io.strati.impl.runtime.context.RuntimeContextEnv
+                        -Druntime.context.appName=aex-strategy-listener
+                        -Dcom.walmart.platform.metrics.impl.type=MICROMETER
+                        -Dcom.walmart.platform.txnmarking.otel.type=LOGGING
+                        -Dscm.server.url=http://tunr.non-prod.walmart.com/scm-app/v2
+                        -Dcom.walmart.platform.logging.profile=OTEL
+                        -Dcom.walmart.platform.telemetry.otel.enabled=true
+                        -Dccm.configs.dir=/etc/config
+                        -Djava.awt.headless=true
+                        -Dcom.walmart.platform.config.appName={{$.kitt.build.artifact}}
+                        -Dcom.walmart.platform.config.runOnEnv={{ $.kittExec.currentCluster.profile }}
+                        -Dcom.walmart.platform.logging.kafka.brokerList={{ $.kittExec.currentCluster.site }}.kafka.medusa.prod.walmart.com:9092
+                        -Dcom.walmart.platform.config.runOnDataCenter={{ $.kittExec.currentCluster.site }}"
+    - name: stage
+      approvers:
+        groups:
+          - "apparel-precision-kitt-admins"
+      refs:
+        - main
+      target:
+        cluster_id:
+          - eus2-stage-a2
+          - uswest-stage-az-303
+      helm:
+        values:
+          min:
+            cpu: 800m
+            memory: 2Gi
+          max:
+            cpu: 1
+            memory: 4Gi
+          scaling:
+            cpuPercent: 70
+            min: 2
+            max: 5
+          metadata:
+            labels:
+              wm.app: AEX-STRATEGY-LISTENER
+              wm.env: 'stg'
+              ccm.serviceId: aex-strategy-listener
+              ccm.serviceConfigVersion: "1.3-STAGE"
+          env:
+            JAVA_OPTS: "-Dspring.profiles.active=stg
+                          -Dio.strati.RuntimeContext=io.strati.impl.runtime.context.RuntimeContextEnv
+                          -Druntime.context.appName=aex-strategy-listener
+                          -Dcom.walmart.platform.metrics.impl.type=MICROMETER
+                          -Dcom.walmart.platform.txnmarking.otel.type=LOGGING
+                          -Dscm.server.url=http://tunr.non-prod.walmart.com/scm-app/v2
+                          -Dcom.walmart.platform.logging.profile=OTEL
+                          -Dcom.walmart.platform.telemetry.otel.enabled=true
+                          -Dccm.configs.dir=/etc/config
+                          -Djava.awt.headless=true
+                          -Dcom.walmart.platform.config.appName={{$.kitt.build.artifact}}
+                          -Dcom.walmart.platform.config.runOnEnv={{ $.kittExec.currentCluster.profile }}
+                          -Dcom.walmart.platform.logging.kafka.brokerList={{ $.kittExec.currentCluster.site }}.kafka.medusa.prod.walmart.com:9092
+                          -Dcom.walmart.platform.config.runOnDataCenter={{ $.kittExec.currentCluster.site }}"
+    - name: prod
+      approvers:
+        groups:
+          - "apparel-precision-kitt-admins"
+      refs:
+        - main
+      target:
+        cluster_id:
+          - eus2-prod-a10
+          - uswest-prod-az-015
+      helm:
+        values:
+          min:
+            cpu: 800m
+            memory: 2Gi
+          max:
+            cpu: 1
+            memory: 4Gi
+          scaling:
+            cpuPercent: 70
+            min: 2
+            max: 5
+          metadata:
+            labels:
+              wm.app: AEX-STRATEGY-LISTENER
+              wm.env: 'prod'
+              ccm.serviceId: aex-strategy-listener
+              ccm.serviceConfigVersion: "1.3-PROD"
+          env:
+            JAVA_OPTS: "-Dspring.profiles.active=prod
+                          -Dspring.profiles.active=stg
+                          -Dio.strati.RuntimeContext=io.strati.impl.runtime.context.RuntimeContextEnv
+                          -Druntime.context.appName=aex-strategy-listener
+                          -Dcom.walmart.platform.metrics.impl.type=MICROMETER
+                          -Dcom.walmart.platform.txnmarking.otel.type=LOGGING
+                          -Dscm.server.url=http://tunr.prod.walmart.com/scm-app/v2
+                          -Dcom.walmart.platform.logging.profile=OTEL
+                          -Dcom.walmart.platform.telemetry.otel.enabled=true
+                          -Dccm.configs.dir=/etc/config
+                          -Djava.awt.headless=true
+                          -Dcom.walmart.platform.config.appName={{$.kitt.build.artifact}}
+                          -Dcom.walmart.platform.config.runOnEnv={{ $.kittExec.currentCluster.profile }}
+                          -Dcom.walmart.platform.logging.kafka.brokerList={{ $.kittExec.currentCluster.site }}.kafka.medusa.prod.walmart.com:9092
+                          -Dcom.walmart.platform.config.runOnDataCenter={{ $.kittExec.currentCluster.site }}"
+notify:
+  slack:
+    channelName: "apparel-precision-ops"
+
+alerts:
+  slackChannel:
+    - apparel-precision-alerts
+setup:
+  featureFlagMap:
+    isGoldenSignalGateEnabled: true

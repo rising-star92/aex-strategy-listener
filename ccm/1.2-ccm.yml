@@ -1,0 +1,406 @@
+apiVersion: 2.0
+kind: ServiceConfig
+metadata:
+  serviceConfigVersion: 1.2
+  serviceId: aex-strategy-listener
+  authzPolicies:
+    adminUI:
+      adminGroups:
+        - "apparel-precision-kitt"
+    git:
+      org: "ApparelPrecision"
+      repo: "aex-strategy-listener"
+      branch: "main"
+  notifications:
+    slack:
+      channel: apparel-precision-ops
+configDefinitions:
+  kafkaConfig:
+    description: "Kafka Configurations"
+    resolutionPaths:
+      - default: "/envProfile/envName"
+    properties:
+      "aex.clp.ap.kafka.server":
+        description: "Kafka Broker list for AEX current line plan"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "kafka-1301504412-1-1404508139.scus.kafka-v2-secured-shared3-stg.ms-df-messaging.stg-az-southcentralus-10.prod.us.walmart.net:9093,kafka-1301504412-2-1404508142.scus.kafka-v2-secured-shared3-stg.ms-df-messaging.stg-az-southcentralus-10.prod.us.walmart.net:9093,kafka-1301504412-3-1404508145.scus.kafka-v2-secured-shared3-stg.ms-df-messaging.stg-az-southcentralus-10.prod.us.walmart.net:9093,kafka-1301504412-4-1404508148.scus.kafka-v2-secured-shared3-stg.ms-df-messaging.stg-az-southcentralus-10.prod.us.walmart.net:9093,kafka-1301504412-5-1404508151.scus.kafka-v2-secured-shared3-stg.ms-df-messaging.stg-az-southcentralus-10.prod.us.walmart.net:9093,kafka-1301504412-6-1404508154.scus.kafka-v2-secured-shared3-stg.ms-df-messaging.stg-az-southcentralus-10.prod.us.walmart.net:9093,kafka-980199677-1-1404507128.wus.kafka-v2-secured-shared3-stg.ms-df-messaging.stg-az-westus-8.prod.us.walmart.net:9093,kafka-980199677-2-1404507131.wus.kafka-v2-secured-shared3-stg.ms-df-messaging.stg-az-westus-8.prod.us.walmart.net:9093,kafka-980199677-3-1404507134.wus.kafka-v2-secured-shared3-stg.ms-df-messaging.stg-az-westus-8.prod.us.walmart.net:9093,kafka-980199677-4-1404507137.wus.kafka-v2-secured-shared3-stg.ms-df-messaging.stg-az-westus-8.prod.us.walmart.net:9093,kafka-980199677-5-1404507140.wus.kafka-v2-secured-shared3-stg.ms-df-messaging.stg-az-westus-8.prod.us.walmart.net:9093,kafka-980199677-6-1404507143.wus.kafka-v2-secured-shared3-stg.ms-df-messaging.stg-az-westus-8.prod.us.walmart.net:9093"
+      "aex.plan.definition.kafka.topic":
+        description: "Kafka Topic for AEX Plan Definition"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "aex_plan_definition"
+      "aex.clp.ap.kafka.topic":
+        description: "Kafka Topic for AEX current line plan"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "aex_line_plan"
+      "aex.clp.ap.kafka.consumer.group-id":
+        description: "Group Id for current line plan kafka topic"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "aex.strategy.service.dev"
+      "kafka.sessionTimeout":
+        description: "Session Timeout for Kafka consumer connections"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "15000"
+      "kafka.heartbeatInterval":
+        description: "Heartbeat Interval for Kafka consumer connections"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "12000"
+      "kafka.autoOffsetReset":
+        description: "Auto Offset Reset config for Kafka consumer connections"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "latest"
+      "kafka.enableAutoCommit":
+        description: "Autocommit Enable config for Kafka consumer connections"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "false"
+      "kafka.consumer.accepted.types":
+        description: "Accepted 'type' attribute in payload received by kafka consumer"
+        type: "STRING"
+        kind: "MULTI"
+        defaultValues:
+          - "create"
+          - "update"
+          - "delete"
+      "kafka.consumer.accepted.channels":
+        description: "Accepted 'channel' attribute in payload received by kafka consumer"
+        type: "STRING"
+        kind: "MULTI"
+        defaultValues:
+          - "store"
+          - "omni"
+          - "online"
+      "kafka.consumer.accepted.updates":
+        description: "Accepted update events in payload received by kafka consumer"
+        type: "STRING"
+        kind: "MULTI"
+        defaultValues:
+          - "finelineName"
+          - "channel"
+          - "traitChoice"
+          - "preferredFixtureType"
+          - "preferredFixtureType2"
+          - "preferredFixtureType3"
+          - "preferredFixtureType4"
+          - "transactableStartWk"
+          - "transactableEndWk"
+          - "colorName"
+          - "altFinelineName"
+          - "altStyleDesc"
+          - "altCcDesc"
+          - "colorFamily"
+          - "outFitting"
+      "kafka.consumer.initial.load.flag":
+        description: "Initial Load to sync plans between LP to other capabilities"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "false"
+      "kafka.consumer.assort.product.flag":
+        description: "Initial Load to sync plans between LP to other capabilities"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "false"
+      "kafka.consumer.size.pack.flag":
+        description: "Initial Load to sync plans between LP to other capabilities"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "false"
+  midasConfig:
+    description: "Midas Data API Service to Service Authentication"
+    resolutionPaths:
+      - default: "/envProfile/envName"
+    properties:
+      "midas.baseURL":
+        description: "Midas api base url"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "http://midas-data-api.stg.midas-api.catdev.prod.us.walmart.net/api/workflow/v1/execute"
+      "midas.clickhouse.table":
+        description: "midas clickhouse table"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "omni_item_channel_sales_wkly_v4_dist"
+      "midas.header.contentType":
+        description: "Midas api header content type"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "application/json"
+      "midas.header.consumer":
+        description: "Midas api header consumer Id"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "13705f9d-3eb8-46b5-b2c1-63a1b569af4c"
+      "midas.header.signatureKeyVersion":
+        description: "Midas api header signature Key Version"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "1"
+      "midas.header.signatureAuthFlag":
+        description: "Midas api header signature Auth Flag"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "true"
+      "midas.header.signatureTS":
+        description: "Midas api header signature TS"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "1639068838648"
+      "midas.header.tenant":
+        description: "Midas api header tenant"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "aex"
+      "midas.apRankingMetricsQuery":
+        description: "To fetch AP Ranking Metrics from ClickHouse database workflow"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "{\"query\": { \"select\": [ { \"field\": \"*\" } ], \"from\": \"get_apRanking_metrics\", \"params\": { \"l1Id\": \"%s\", \"l2Id\": \"%s\", \"finelineNbr\": \"%s\", \"season\": \"%s\", \"fiscalYear\": \"%s\"}}}"
+      "midas.spGetStoreSizeProfilesQuery":
+        description: "To retrieve store size profiles by fineline/color"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "{\"query\":{\"select\":[{\"field\":\"*\"}],\"from\":\"get_store_size_profiles\",\"params\":{\"season\":\"%s\",\"deptNbr\":\"%s\",\"finelineNbr\":\"%s\",\"colorFamily\":\"%s\",\"year\":\"%s\"}}}"
+      "midas.spGetStoreSizeProfilesQuery_v2":
+        description: "To retrieve store size profiles by fineline/colorfamilies"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "{\"query\":{\"select\":[{\"field\":\"*\"}],\"from\":\"get_store_size_profiles_v2\",\"params\":{\"season\":\"%s\",\"deptNbr\":\"%s\",\"finelineNbr\":\"%s\",\"colorFamilies\":\"%s\",\"year\":\"%s\"}}}"
+      "midas.spGetOnlineSizeProfilesQuery":
+        description: "To retrieve online size profiles base baseItemId/color"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "{\"query\":{\"select\":[{\"field\":\"*\"}],\"from\":\"get_ecomm_size_profiles\",\"params\":{\"season\":\"%s\",\"deptNbr\":\"%s\",\"baseItemId\":\"%s\",\"colorFamily\":\"%s\",\"year\":\"%s\"}}}"
+      "midas.spGetOnlineSizeProfilesQuery_v2":
+        description: "To retrieve online size profiles base baseItemId/color"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "{\"query\":{\"select\":[{\"field\":\"*\"}],\"from\":\"get_ecomm_size_profiles_v2\",\"params\":{\"season\":\"%s\",\"deptNbr\":\"%s\",\"baseItemIds\":\"%s\",\"colorFamilies\":\"%s\",\"year\":\"%s\"}}}"
+  httpConfig:
+    description: "HTTP Configurations"
+    resolutionPaths:
+      - default: "/envProfile/envName"
+    properties:
+      "http.connectTimeout":
+        description: "Connection Timeout for HTTP Calls"
+        type: "INTEGER"
+        kind: "SINGLE"
+        defaultValue: 180000
+      "http.connectionRequestTimeout":
+        description: "Connection Request Timeout for HTTP Calls"
+        type: "INTEGER"
+        kind: "SINGLE"
+        defaultValue: 180000
+      "http.readTimeout":
+        description: "Read Timeout for HTTP calls"
+        type: "INTEGER"
+        kind: "SINGLE"
+        defaultValue: 180000
+  strategyConfig:
+    description: "Strategy Configurations"
+    resolutionPaths:
+      - default: "/envProfile/envName"
+    properties:
+      "strategy.baseUrl":
+        description: "Strategy Base URL"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "https://strategy.aex.dev.walmart.net"
+      "strategy.accepted.fixture.updates":
+        description: "Accepted fixture updates forfixture strategy update"
+        type: "STRING"
+        kind: "MULTI"
+        defaultValues:
+          - "preferredFixtureType"
+          - "preferredFixtureType2"
+          - "preferredFixtureType3"
+          - "preferredFixtureType4"
+      "strategy.consumerId":
+        description: "Strategy Consumer Id"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "3083580c-161c-41f6-90de-eba73f02c564"
+      "strategy.appKey":
+        description: "Strategy App Key"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "AEX_STRATEGY_SERVICE"
+      "strategy.env":
+        description: "Strategy Env"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "dev"
+  ahsApiConfig:
+    description: "AHS Api Header Configurations"
+    resolutionPaths:
+      - default: "/envProfile/envName"
+    properties:
+      "strategy.sizeUrl":
+        description: "AHS Size URL"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "http://attributehelper.apparel.dev.walmart.net/retrieveValuesByHierarchy"
+      "strategy.sizeCustomerID":
+        description: "AHS CustomerID for Size"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "0af23de5-9574-456a-a974-19e5e732bb0c"
+      "strategy.sizeServiceName":
+        description: "AHS Service Name"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "ATTRIBUTE-HELPER-SERVICE"
+      "strategy.sizeApiEnv":
+        description: "ENVIRONMENT"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "dev"
+      "strategy.sizeAttributeName":
+        description: "Attribute for which we want info from AHS"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "size"
+      "strategy.consumerId":
+        description: "Strategy Consumer Id"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "3083580c-161c-41f6-90de-eba73f02c564"
+      "strategy.appKey":
+        description: "Strategy App Key"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "AEX_STRATEGY_SERVICE"
+      "strategy.env":
+        description: "Strategy Env"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "dev"
+      "size.pack.release.flag":
+        description: "Size pack release flag"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "false"
+  featureConfig:
+    description: "This Configuration helps to enable-disable a feature"
+    resolutionPaths:
+      - default: "/envProfile/envName"
+    properties:
+      "enable.deletePlanCategorySubCategory":
+        description: "Flag to enable delete Plan Category,Sub-Category"
+        type: "BOOLEAN"
+        kind: "SINGLE"
+        defaultValue: true
+  sizePackConfig:
+    description: "Size and Pack Accepted Updates"
+    resolutionPaths:
+      - default: "/envProfile/envName"
+    properties:
+      "size.pack.accepted.updates":
+        description: "Accepted updates for size and pack"
+        type: "STRING"
+        kind: "MULTI"
+        defaultValues:
+          - "colorFamily"
+          - "colorName"
+          - "channel"
+      "size.pack.plan.desc.feature.flag":
+        description: "Flag to enable usage of default plan description value"
+        type: "BOOLEAN"
+        kind: "SINGLE"
+        defaultValue: false
+      "size.pack.plan.desc.value":
+        description: "Plan description default value"
+        type: "STRING"
+        kind: "SINGLE"
+        defaultValue: "S3 - FYE2024"
+configOverrides:
+  strategyConfig:
+    - name: "dev"
+      description: "Strategy Service Configuration override for DEV profile"
+      pathElements:
+        envName: "dev"
+        envProfile: "dev"
+      value:
+        properties:
+          "strategy.baseUrl": "https://strategy.aex.dev.walmart.net"
+          "strategy.consumerId": "3083580c-161c-41f6-90de-eba73f02c564"
+          "strategy.env": "dev"
+    - name: "stage"
+      description: "Strategy Service Configuration override for Stage profile"
+      pathElements:
+        envName: "stage"
+        envProfile: "stage"
+      value:
+        properties:
+          "strategy.baseUrl": "https://strategy.aex.stg.walmart.net"
+          "strategy.consumerId": "baf1bb4a-8c4e-431a-81a9-5f3a9ea171b8"
+          "strategy.env": "stg"
+  kafkaConfig:
+    - name: "dev"
+      description: "Kafka Configuration override for DEV profile"
+      pathElements:
+        envName: "dev"
+        envProfile: "dev"
+      value:
+        properties:
+          "aex.plan.definition.kafka.topic": "aex_plan_definition"
+          "aex.clp.ap.kafka.topic": "aex_line_plan"
+          "aex.clp.ap.kafka.server": "kafka-1301504412-1-1404508139.scus.kafka-v2-secured-shared3-stg.ms-df-messaging.stg-az-southcentralus-10.prod.us.walmart.net:9093,kafka-1301504412-2-1404508142.scus.kafka-v2-secured-shared3-stg.ms-df-messaging.stg-az-southcentralus-10.prod.us.walmart.net:9093,kafka-1301504412-3-1404508145.scus.kafka-v2-secured-shared3-stg.ms-df-messaging.stg-az-southcentralus-10.prod.us.walmart.net:9093,kafka-1301504412-4-1404508148.scus.kafka-v2-secured-shared3-stg.ms-df-messaging.stg-az-southcentralus-10.prod.us.walmart.net:9093,kafka-1301504412-5-1404508151.scus.kafka-v2-secured-shared3-stg.ms-df-messaging.stg-az-southcentralus-10.prod.us.walmart.net:9093,kafka-1301504412-6-1404508154.scus.kafka-v2-secured-shared3-stg.ms-df-messaging.stg-az-southcentralus-10.prod.us.walmart.net:9093"
+          "aex.clp.ap.kafka.consumer.group-id": "aex.strategy.service.dev"
+    - name: "stage"
+      description: "Kafka Configuration override for STAGE profile"
+      pathElements:
+        envName: "stage"
+        envProfile: "stage"
+      value:
+        properties:
+          "aex.plan.definition.kafka.topic": "aex_plan_definition_stg"
+          "aex.clp.ap.kafka.topic": "aex_line_plan_stg"
+          "aex.clp.ap.kafka.server": "kafka-1301504412-1-1404508139.scus.kafka-v2-secured-shared3-stg.ms-df-messaging.stg-az-southcentralus-10.prod.us.walmart.net:9093,kafka-1301504412-2-1404508142.scus.kafka-v2-secured-shared3-stg.ms-df-messaging.stg-az-southcentralus-10.prod.us.walmart.net:9093,kafka-1301504412-3-1404508145.scus.kafka-v2-secured-shared3-stg.ms-df-messaging.stg-az-southcentralus-10.prod.us.walmart.net:9093,kafka-1301504412-4-1404508148.scus.kafka-v2-secured-shared3-stg.ms-df-messaging.stg-az-southcentralus-10.prod.us.walmart.net:9093,kafka-1301504412-5-1404508151.scus.kafka-v2-secured-shared3-stg.ms-df-messaging.stg-az-southcentralus-10.prod.us.walmart.net:9093,kafka-1301504412-6-1404508154.scus.kafka-v2-secured-shared3-stg.ms-df-messaging.stg-az-southcentralus-10.prod.us.walmart.net:9093"
+          "aex.clp.ap.kafka.consumer.group-id": "aex.strategy.service.stg"
+  ahsApiConfig:
+    - name: "dev"
+      description: "Strategy Service Configuration override for DEV profile"
+      pathElements:
+        envName: "dev"
+        envProfile: "dev"
+      value:
+        properties:
+          "strategy.sizeUrl": "http://attributehelper.apparel.dev.walmart.net/retrieveValuesByHierarchy"
+          "strategy.sizeCustomerID": "3083580c-161c-41f6-90de-eba73f02c564"
+          "strategy.env": "dev"
+          "size.pack.release.flag": "true"
+    - name: "stage"
+      description: "Strategy Service Configuration override for Stage profile"
+      pathElements:
+        envName: "stage"
+        envProfile: "stage"
+      value:
+        properties:
+          "strategy.sizeUrl": "http://attributehelper.apparel.stg.walmart.net/retrieveValuesByHierarchy"
+          "strategy.sizeCustomerID": "baf1bb4a-8c4e-431a-81a9-5f3a9ea171b8"
+          "strategy.env": "stg"
+          "size.pack.release.flag": "true"
+          "strategy.sizeApiEnv": "stg"
+  featureConfig:
+    - name: "dev"
+      description: "This Configuration helps to enable-disable a feature for DEV profile"
+      pathElements:
+        envName: "dev"
+        envProfile: "dev"
+      value:
+        properties:
+          "enable.deletePlanCategorySubCategory": true
+    - name: "stage"
+      description: "This Configuration helps to enable-disable a feature for STAGE profile"
+      pathElements:
+        envName: "stage"
+        envProfile: "stage"
+      value:
+        properties:
+          "enable.deletePlanCategorySubCategory": true

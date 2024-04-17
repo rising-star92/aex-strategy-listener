@@ -1,0 +1,153 @@
+{
+  "planId": 361,
+  "planDesc": "S1FYE2023",
+  "lvl0Nbr": 50000,
+  "lvl0Desc": "Apparel",
+  "lvl1List": [
+    {
+      "lvl1Nbr": 34,
+      "lvl1Desc": "D34 - Womens Apparel",
+      "lvl2List": [
+        {
+          "lvl2Nbr": 1488,
+          "lvl2Desc": "Activewear Womens",
+          "lvl3List": [
+            {
+              "lvl3Name": "Bras Womens And Plus Womens",
+              "lvl3Nbr": 1050674,
+              "channel": "store",
+              "lvl4List": [
+                {
+                  "lvl4Name": "Wireless Bras Womens And Plus Womens",
+                  "lvl4Nbr": 1050675,
+                  "channel": "",
+                  "finelines": [
+                    {
+                      "finelineNbr": 123,
+                      "finelineName": "Womens Tops Hoodie",
+                      "channel": "store",
+                      "traitChoice": "Traited",
+                      "strategy": {
+                        "weatherClusters": [
+                          {
+                            "type":{
+                              "analyticsClusterId":0,
+                              "analyticsClusterDesc":"all"
+                            },
+                            "algoClusterRanking": 2
+                          },
+                          {
+                            "type":{
+                              "analyticsClusterId":1,
+                              "analyticsClusterDesc":"Cluster 1"
+                            },
+                            "storeCount": 100,
+                            "sellingWeeks": 10,
+                            "inStoreDate": {
+                              "fiscalWeekDesc": "FYE2023WK01",
+                              "wmYearWeek": 12301,
+                              "dwWeekId": 202402
+                            },
+                            "markDownDate": {
+                              "fiscalWeekDesc": "FYE2023WK01",
+                              "wmYearWeek": 12301,
+                              "dwWeekId": 202402
+                            },
+                            "lySales": 152791,
+                            "lyUnits": 50000,
+                            "onHandQty": 100,
+                            "salesToStockRatio": 20.34,
+                            "forecastedSales": 1567789,
+                            "forecastedUnits": 50000,
+                            "algoClusterRanking": 2
+                          }
+                        ],
+                        "fixture": [
+                          {
+                            "orderPref": 1,
+                            "type": "Walls"
+                          },
+                          {
+                            "orderPref": 2,
+                            "type": "Racks"
+                          },
+                          {
+                            "orderPref": 3,
+                            "type": "Tables"
+                          },
+                          {
+                            "orderPref": 4,
+                            "type": "Endcaps"
+                          }
+                        ]
+                      },
+                      "styles": [
+                        {
+                          "styleNbr": "123_456_23_001",
+                          "channel": "store",
+                          "customerChoices": [
+                            {
+                              "ccid": "34_1234_21_3_001_001",
+                              "colorName": "BlackShoot",
+                              "channel": "store",
+                              "strategy": {
+                                "weatherClusters": [
+                                  {
+                                    "type":{
+                                      "analyticsClusterId":0,
+                                      "analyticsClusterDesc":"all"
+                                    }
+                                  },
+                                  {
+                                    "type":{
+                                      "analyticsClusterId":1,
+                                      "analyticsClusterDesc":"cluster1"
+                                    },
+                                    "storeCount": 100,
+                                    "sellingWeeks": 10,
+                                    "inStoreDate": {
+                                      "fiscalWeekDesc": "FYE2023WK01",
+                                      "wmYearWeek": 12301,
+                                      "dwWeekId": 202402
+                                    },
+                                    "markDownDate": {
+                                      "fiscalWeekDesc": "FYE2023WK01",
+                                      "wmYearWeek": 12301,
+                                      "dwWeekId": 202402
+                                    }
+                                  },
+                                  {
+                                    "type":{
+                                      "analyticsClusterId":7,
+                                      "analyticsClusterDesc":"cluster7"
+                                    },
+                                    "storeCount": 100,
+                                    "sellingWeeks": 10,
+                                    "inStoreDate": {
+                                      "fiscalWeekDesc": "FYE2023WK01",
+                                      "wmYearWeek": 12301,
+                                      "dwWeekId": 202402
+                                    },
+                                    "markDownDate": {
+                                      "fiscalWeekDesc": "FYE2023WK01",
+                                      "wmYearWeek": 12301,
+                                      "dwWeekId": 202402
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

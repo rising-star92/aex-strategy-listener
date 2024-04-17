@@ -1,0 +1,53 @@
+schemaVersion: 1.0.0
+notify:
+  slack:
+    channelName: apparel-precision-ops
+applications:
+  - name: aex-strategy-listener
+    key: AEX-STRATEGY-LISTENER
+    description: Listener service to get data from current line plan
+    organization: ApparelPrecision
+    companyCatalog: true
+    businessCriticality: MINOR
+    members:
+      - homeoffice\a0s07o9
+      - homeoffice\s0y027g
+      - homeoffice\a0b0bzv
+    environments:
+      - name: dev
+        type: DEVELOPMENT
+        description: aex-strategy-listener in dev cluster
+        externalCatalog: false
+        serviceType: REST
+        wcnpProximity: true
+        consumers:
+          - applicationKey: AEX_KAFKA_RETRY
+            environment: dev
+        consumerIdInfos:
+          - consumerId: 3083580c-161c-41f6-90de-eba73f02c564
+            publicKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA7GIv8odrancOyoHhd0uR9EQMG7kNt6/T6P7xgYjQu1Mmx2lcSp5xiHGPosD86hmtIfCW/Rm95Ed6N7TDY8KaSTjxXEh2MdvqdQogRvSvBYu5ce5FsuZEE3jNpO99F+FhwsASIB9vQO+ZBLxTo1I3UrRiRrjutrf70UROZSTE/Z4cf8UXZwxeLMSGTjsWdXLLtkWyazTco7THnkiAdRXNHQPoD/icUvWXUytEWJPwqCdrbr754Yg19lfI/2zo+qTE72sliCNS7bp4dJiom3p2/oH0K/oKBRo8hhyDr+hMQhK0AjcwseDzdfLJIwI2EopqiH7/EztAtR20cBxt4YTJ0QIDAQAB
+
+      - name: stg
+        type: STAGING
+        description: aex-strategy-listener in stg cluster
+        externalCatalog: false
+        serviceType: REST
+        wcnpProximity: true
+        consumers:
+          - applicationKey: AEX_KAFKA_RETRY
+            environment: stg
+        consumerIdInfos:
+          - consumerId: baf1bb4a-8c4e-431a-81a9-5f3a9ea171b8
+            publicKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwrQnrjZr0MJN5+qz2wYkMNGrV3X2IDJZqB43t2CAzmkc2kuFb+2SySUN05UL5wgCv9PLIuODj1Epk8OpKRuL9P6L36sAYWixtnhNurLoSxOe5LYHBDD6BiFkzIGCxaUuIW4qTm67o3D+cr7chSiIvmCD82PLIY9QCoeRqi18NWTjuGWPGMfX5x6bMkiyIhuiwBqes3hDFSJMe9MM6dycxZrrVNC0cauV5O0Icp4BmQsD9qhCcH5p4/Oaa3dkn4KMIe3jcUpSZubpcD5b8SpQh3cMxXWA3SFT8l0L5U6PHsM7lvIk/rnKpGXzQFhqkA3Mx9VjA1k3lbiZ3hmqKbgeawIDAQAB
+      - name: prod
+        type: PRODUCTION
+        description: aex-strategy-listener in Prod cluster
+        externalCatalog: false
+        serviceType: REST
+        wcnpProximity: true
+        consumers:
+          - applicationKey: AEX_KAFKA_RETRY
+            environment: prod
+        consumerIdInfos:
+          - consumerId: 452056b2-fe53-42de-8dad-6d1581436858
+            publicKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0QuVnIuB/zQP4lRPsvc/aFLA1m+OlOdqpElWW0Qjfxt8s1Sn8q2wfDh9MYj28X3bTcl69vRYs1h4ONKZgfdIsrwWolcO0u1+0s4BJD3umfPDgwBeNS53ESBa6ZUOqr8TB71SMAHgOvBvi+q2x3Rcd+mjV4gPdGWDWYfIyQacckLqxhaFUz+P4iTuYeaovnKqm2l8FVQX+N9wrT4jEzSJn8JEt56Yk0BDXxq0MVJfP1GUbAgk3ZfUk3D0GKr1V9Ksew1k0KocSTvUQQOqP4JTEBloTuONjKuqFz0MXZyeyuWEG6HjvpXqD8lZqzF/Q4MdTDpNEaEPtqyS1YZ6tt3+QwIDAQAB

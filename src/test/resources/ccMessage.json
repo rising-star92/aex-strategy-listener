@@ -1,0 +1,36 @@
+{
+  "finelineId": 15972,
+  "styles": [
+    {
+      "styleNbr": "123_456_23_001",
+      "altStyleDesc": "",
+      "productDevManager": {
+        "name": "John Smith",
+        "id": "1ABC2"
+      },
+      "customerChoices": [
+        {
+          "ccId": "",
+          "altCcDesc": "",
+          "productDevManager": {
+            "name": "John Smith",
+            "id": "1ABC2"
+          },
+          "channel": "store",
+          "metrics": {
+            "current": {
+              "planComments": "",
+              "store": {
+                "financialAttributes": {
+                  "transactableStartWk": "FYE2022WK12",
+                  "transactableEndWk": "FYE2022WK22",
+                  "transactableWks": 10
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,160 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  config:
+    activate:
+      on-profile: local
+logging:
+  level:
+    ROOT: INFO
+    org.springframework: INFO
+    com.walmart.aex.strategy.listener: info
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} AEX-STRATEGY-LISTENER [%thread] %-5level %logger{36} - %msg%n"
+
+runtime:
+  context:
+    appVersion: 1.0.0-SNAPSHOT
+    environment: DEV
+    system:
+      property:
+        override:
+          enabled: true
+    environmentType: dev
+    appName: aex-strategy-listener
+
+scm:
+  server:
+    access:
+      enabled: true
+  snapshot:
+    enabled: true
+    
+aex:
+  errorHandler:
+    enabled: false
+---
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  config:
+    activate:
+      on-profile: dev
+logging:
+  level:
+    ROOT: INFO
+    org.springframework: INFO
+    com.walmart.aex.strategy.listener: info
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} AEX-STRATEGY-LISTENER  [%thread] %-5level %logger{36} - %msg%n"
+
+runtime:
+  context:
+    appVersion: 1.0.0-SNAPSHOT
+    environment: DEV
+    system:
+      property:
+        override:
+          enabled: true
+    environmentType: dev
+    appName: aex-strategy-listener
+
+scm:
+  server:
+    access:
+      enabled: true
+  snapshot:
+    enabled: true
+    
+aex:
+  errorHandler:
+    enabled: true
+---
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  config:
+    activate:
+      on-profile: stg
+logging:
+  level:
+    ROOT: INFO
+    org.springframework: INFO
+    com.walmart.aex.strategy.listener: info
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} AEX-STRATEGY-LISTENER [%thread] %-5level %logger{36} - %msg%n"
+
+runtime:
+  context:
+    appVersion: 1.0.0-SNAPSHOT
+    environment: STG
+    system:
+      property:
+        override:
+          enabled: true
+    environmentType: stg
+    appName: aex-strategy-listener
+
+scm:
+  server:
+    access:
+      enabled: true
+  snapshot:
+    enabled: true
+    
+aex:
+  errorHandler:
+    enabled: true
+---
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  config:
+    activate:
+      on-profile: prod
+logging:
+  level:
+    ROOT: INFO
+    org.springframework: INFO
+    com.walmart.aex.strategy.listener: info
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} AEX-STRATEGY-LISTENER [%thread] %-5level %logger{36} - %msg%n"
+
+runtime:
+  context:
+    appVersion: 1.0.0-SNAPSHOT
+    environment: PROD
+    system:
+      property:
+        override:
+          enabled: true
+    environmentType: prod
+    appName: aex-strategy-listener
+
+scm:
+  server:
+    access:
+      enabled: true
+  snapshot:
+    enabled: true
+    
+aex:
+  errorHandler:
+    enabled: true
+---
+management:
+  health:
+    db:
+      enabled: false
+  endpoints:
+    web:
+      exposure:
+        include:
+          - health
+          - info
+          - loggers
+    health:
+      show-details: always
+  endpoint:
+    loggers:
+      enabled: true
